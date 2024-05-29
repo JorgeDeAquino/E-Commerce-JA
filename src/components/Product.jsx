@@ -1,6 +1,7 @@
-import React from 'react'
 
-export default function Product(product) {
+
+export default function Product({ product }) {
+
     return (
         <div className="product">
             <img src={product.image} alt={product.name} />
