@@ -1,6 +1,9 @@
+import { useState } from "react"
 
 
-export default function Product({ product }) {
+export default function Product({ product, onAddToCart }) {
+
+    const [quantity, setQuantity] = useState(1)
 
     return (
         <div className="product">
@@ -11,7 +14,7 @@ export default function Product({ product }) {
                 <select>
                     <option value="">1</option>
                 </select>
-                <button>Adicionar ao Carrinho</button>
+                <button onClick={() => onAddToCart(product, quantity)} >Adicionar ao Carrinho</button>
             </div>
         </div>
     )
