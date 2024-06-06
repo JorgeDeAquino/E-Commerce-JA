@@ -15,7 +15,11 @@ function App() {
       const itemExists = prevItems.find((item) => item.id === product.id)
 
       if (itemExists) {
-        
+        return prevItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
       } else {
         return [...prevItems, {...product, quantity}]
       }
@@ -33,7 +37,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path='/' element={<Catalog onAddToCart={handleAddCart} />}/>
-          <Route path='/cart' element={<Cart />}/>
+          <Route path='/cart' element={<Cart cartItems={cartItems} />}/>
           <Route path='/thank-you' element={<ThankYouPage />}/>
         </Routes>
       </div>
