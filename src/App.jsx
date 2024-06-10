@@ -4,6 +4,10 @@ import Cart from './components/Cart'
 import ThankYouPage from './components/ThankYouPage'
 import { useState } from 'react'
 
+import { ToastContainer, toast } from 'react-toastify'
+
+import 'react-toastify/dist/ReactToastify.css'
+
 function App() {
 
   const [cartItems, setCartItems] = useState([])
@@ -15,13 +19,15 @@ function App() {
       const itemExists = prevItems.find((item) => item.id === product.id)
 
       if (itemExists) {
+        toast.info(`Quantidade atualizada no carrinho: ${product.name}`)
         return prevItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        return [...prevItems, {...product, quantity}]
+        toast.success(`${product.name} adicionado ao carrinho!`)
+        return [...prevItems, { ...product, quantity }]
       }
 
     })
@@ -36,11 +42,19 @@ function App() {
       </nav>
       <div className="container">
         <Routes>
-          <Route path='/' element={<Catalog onAddToCart={handleAddCart} />}/>
-          <Route path='/cart' element={<Cart cartItems={cartItems} />}/>
-          <Route path='/thank-you' element={<ThankYouPage />}/>
+          <Route path='/' element={<Catalog onAddToCart={handleAddCart} />} />
+          <Route path='/cart' element={<Cart cartItems={cartItems} />} />
+          <Route path='/thank-you' element={<ThankYouPage />} />
         </Routes>
       </div>
+      <ToastContainer
+        position='top-center'
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnFocusLoss
+        pauseOnHover
+      />
     </BrowserRouter>
   )
 }
