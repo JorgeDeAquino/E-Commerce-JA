@@ -8,7 +8,7 @@ export default function Cart({cartItems}) {
             cartItems.length === 0 ? (<p>Não há itens no carrinho.</p>) : (
                 <>
                 {cartItems.map((item) => (
-                    <p>{item.name}</p>
+                    <p>{item.name} - {item.quantity}</p>
                 ))}
                 </>
             )

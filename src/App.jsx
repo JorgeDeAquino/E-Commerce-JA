@@ -31,8 +31,16 @@ function App() {
       }
 
     })
-
   }
+
+  const handleUpdateCart = (product, quantity) => {
+    setCartItems((prevItems) => {
+      toast.info(`Quantidade atualizada: ${product.name}`);
+      return prevItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: +quantity } : item
+      );
+    });
+  };
 
   return (
     <BrowserRouter>
@@ -43,7 +51,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path='/' element={<Catalog onAddToCart={handleAddCart} />} />
-          <Route path='/cart' element={<Cart cartItems={cartItems} />} />
+          <Route path='/cart' element={<Cart cartItems={cartItems}  onUpdateCart={handleUpdateCart} />} />
           <Route path='/thank-you' element={<ThankYouPage />} />
         </Routes>
       </div>
