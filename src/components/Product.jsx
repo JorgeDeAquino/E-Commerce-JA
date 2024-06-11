@@ -8,7 +8,7 @@ export default function Product({ product, onAddToCart }) {
     return (
         <div className="product">
             <img src={product.image} alt={product.name} />
-            <h3>{product.title}</h3>
+            <h3>{product.name}</h3>
             <p>${product.price}</p>
             <div className="cart-buttons">
                 <select onChange={(e) => setQuantity(e.target.value)}>
