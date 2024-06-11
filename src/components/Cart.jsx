@@ -1,6 +1,7 @@
 import React from 'react'
+import CartItem from './CartItem'
 
-export default function Cart({cartItems}) {
+export default function Cart({cartItems, onUpdateCart}) {
   return (
     <div>
         <h1>Carrinho</h1>
@@ -8,7 +9,7 @@ export default function Cart({cartItems}) {
             cartItems.length === 0 ? (<p>Não há itens no carrinho.</p>) : (
                 <>
                 {cartItems.map((item) => (
-                    <p>{item.name} - {item.quantity}</p>
+                    <CartItem item={item} onUpdateCart={onUpdateCart} />
                 ))}
                 </>
             )
