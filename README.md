@@ -4,4 +4,3 @@ Objetivos:
 [x] atualizar quantidade de itens visual
 [ ] resolver nan
 [ ] remover itens do carrinho
-[ ] add locals
