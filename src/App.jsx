@@ -1,7 +1,9 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+
 import Catalog from './components/Catalog'
 import Cart from './components/Cart'
 import ThankYouPage from './components/ThankYouPage'
+
 import { useState } from 'react'
 
 import { ToastContainer, toast } from 'react-toastify'
