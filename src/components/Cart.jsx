@@ -1,5 +1,6 @@
 import React from 'react'
 import CartItem from './CartItem'
+import CheckoutButton from './CheckoutButton'
 
 export default function Cart({cartItems, onUpdateCart}) {
 
@@ -16,6 +17,7 @@ export default function Cart({cartItems, onUpdateCart}) {
                 ))}
                 <div className="total">
                   <p>Total: ${totalPrice}</p>
+                  <CheckoutButton />
                 </div>
                 </>
             )
