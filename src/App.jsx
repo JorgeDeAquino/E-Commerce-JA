@@ -65,6 +65,13 @@ function App() {
             cartItems={cartItems} 
             onUpdateCart={handleUpdateCart}
             onRemoveFromCart={handleRemoveFromCart}
+            onCheckout={() => {
+              if (cartItems.length > 0) {
+                
+              } else {
+                toast.error("Seu carrinho está vazio")
+              }
+            }}
              />} />
           <Route path='/thank-you' element={<ThankYouPage />} />
         </Routes>

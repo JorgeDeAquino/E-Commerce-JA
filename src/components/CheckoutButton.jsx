@@ -1,7 +1,7 @@
 
 
-export default function CheckoutButton() {
-  return (
-    <button>Finalizar Compra</button>
-  )
+export default function CheckoutButton(onCheckout) {
+    return (
+        <button onClick={onCheckout}>Finalizar Compra</button>
+    )
 }
