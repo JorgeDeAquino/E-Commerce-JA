@@ -67,7 +67,8 @@ function App() {
             onRemoveFromCart={handleRemoveFromCart}
             onCheckout={() => {
               if (cartItems.length > 0) {
-                
+                toast.success("Compra finalizada com sucesso!")
+                setCartItems([])
               } else {
                 toast.error("Seu carrinho está vazio")
               }

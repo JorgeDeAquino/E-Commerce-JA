@@ -12,7 +12,6 @@ export default function Cart({ cartItems, onUpdateCart, onRemoveFromCart, onChec
       {
         cartItems.length === 0 ? (<>
           <p>Não há itens no carrinho.</p>
-          <CheckoutButton onCheckout={onCheckout} />
         </>
         ) : (
           <>
@@ -21,7 +20,7 @@ export default function Cart({ cartItems, onUpdateCart, onRemoveFromCart, onChec
             ))}
             <div className="total">
               <p>Total: ${totalPrice}</p>
-              <CheckoutButton />
+              <CheckoutButton onCheckout={onCheckout} />
             </div>
           </>
         )
