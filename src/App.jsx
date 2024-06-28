@@ -63,6 +63,7 @@ function App() {
           <Route path='/cart' element={
             <Cart 
             cartItems={cartItems} 
+            setCartItems={setCartItems}
             onUpdateCart={handleUpdateCart}
             onRemoveFromCart={handleRemoveFromCart}
             onCheckout={() => {

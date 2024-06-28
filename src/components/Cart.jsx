@@ -2,15 +2,14 @@ import React from 'react'
 import CartItem from './CartItem'
 import CheckoutButton from './CheckoutButton'
 
-export default function Cart({ cartItems, onUpdateCart, onRemoveFromCart, onCheckout }) {
+export default function Cart({ cartItems, onUpdateCart, onRemoveFromCart, setCartItems }) {
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
 
   return (
     <div>
       <h1>Carrinho</h1>
-      {
-        cartItems.length === 0 ? (<>
+      {cartItems.length === 0 ? (<>
           <p>Não há itens no carrinho.</p>
         </>
         ) : (
@@ -20,7 +19,7 @@ export default function Cart({ cartItems, onUpdateCart, onRemoveFromCart, onChec
             ))}
             <div className="total">
               <p>Total: ${totalPrice}</p>
-              <CheckoutButton onCheckout={onCheckout} />
+              <CheckoutButton cartItems={cartItems} setCartItems={setCartItems} />
             </div>
           </>
         )
